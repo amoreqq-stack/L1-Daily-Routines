@@ -1038,9 +1038,8 @@ function sfCheck(fi){
 
   var userMsg='Sentence frame: "'+f.t+' [BLANK]'+f.x+'"\n'
     +'Student completed it as: "'+completed+'"\n'
-    +'Is this grammatically correct and natural English for an A1-A2 student? Give brief feedback.';
-
-const response = await fetch('/api/claude', {
+  try {
+        const response = await fetch('/api/claude', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userInput: userMsg })
@@ -1050,10 +1049,9 @@ const response = await fetch('/api/claude', {
         return data;
     } catch (error) {
         console.error('Error:', error);
-        return { error: 'Connection failed' };
+        return { error: 'Failed' };
     }
 }
-  })
   .catch(function(){
     fbEl.className='sf-feedback no';
     fbEl.textContent='Could not connect. Check your answer manually.';
