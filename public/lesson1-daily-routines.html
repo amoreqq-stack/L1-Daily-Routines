@@ -1040,36 +1040,31 @@ function sfCheck(fi){
     +'Student completed it as: "'+completed+'"\n'
     +'Is this grammatically correct and natural English for an A1-A2 student? Give brief feedback.';
 
-  fetch('https://a1-daily-routines-work-life-balance.vercel.app/api/claude',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:120,
-      system:systemPrompt,
-      messages:[{role:'user',content:userMsg}]
-    })
-  })
-  .then(function(r){return r.json();})
-  .then(function(data){
-    var text=data.content&&data.content[0]?data.content[0].text:'Could not get feedback.';
-    var isCorrect=text.charAt(0)==='&#10003;'||text.indexOf('\u2705')>=0||text.toLowerCase().indexOf('correct')>=0&&text.indexOf('\u274c')<0&&text.indexOf('\u2716')<0;
-    // detect tick vs cross from first char
-    var firstChar=text.codePointAt(0);
-    var ok=(firstChar===0x2705||firstChar===0x2714||firstChar===0x2713);
-    fbEl.className='sf-feedback '+(ok?'ok':'no');
-    fbEl.textContent=text;
-    fbEl.style.display='block';
-    for(var k=0;k<inputs.length;k++){
-      inputs[k].classList.add(ok?'correct':'wrong');
-    }
-    btn.disabled=false;
-    btn.textContent='Try again';
-  })
-  .catch(function(){
-    fbEl.className='sf-feedback no';
-    fbEl.textContent='Could not connect. Check your answer manually.';
-    fbEl.style.display='block';
+ fetch('/api/claude', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userInput: userMsg })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const text = data.content && data.content[0] ? data.content[0].text : 'Could not get feedback.';
+            const isCorrect = text.includes('✅') || text.toLowerCase().includes('correct');
+            
+            fbEl.className = 'sf-feedback ' + (isCorrect ? 'ok' : 'no');
+            fbEl.textContent = text;
+            fbEl.style.display = 'block';
+            
+            inputs.forEach(input => input.classList.add(isCorrect ? 'correct' : 'wrong'));
+            btn.disabled = false;
+            btn.textContent = 'Try again';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            fbEl.className = 'sf-feedback no';
+            fbEl.textContent = 'Could not connect. Check your answer manually.';
+            fbEl.style.display = 'block';
+            btn.disabled = false;
+        });
     btn.disabled=false;
   });
 }
