@@ -1040,15 +1040,13 @@ function sfCheck(fi){
     +'Student completed it as: "'+completed+'"\n'
     +'Is this grammatically correct and natural English for an A1-A2 student? Give brief feedback.';
 
-  fetch('https://a1-daily-routines-work-life-balance.vercel.app/api/claude',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:120,
-      system:systemPrompt,
-      messages:[{role:'user',content:userMsg}]
+  fetch('/api/claude', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        userInput: userMsg // This matches the 'userInput' inside your claude.js
     })
+})
   })
   .then(function(r){return r.json();})
   .then(function(data){
