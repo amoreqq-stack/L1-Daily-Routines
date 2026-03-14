@@ -1038,11 +1038,15 @@ function sfCheck(fi){
 
   var userMsg='Sentence frame: "'+f.t+' [BLANK]'+f.x+'"\n'
     +'Student completed it as: "'+completed+'"\n'
-  try {
+ try {
         const response = await fetch('/api/claude', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userInput: userMsg })
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userInput: userMsg
+            }),
         });
 
         const data = await response.json();
@@ -1052,8 +1056,6 @@ function sfCheck(fi){
         return { error: 'Failed' };
     }
 }
-  .catch(function(){
-    fbEl.className='sf-feedback no';
     fbEl.textContent='Could not connect. Check your answer manually.';
     fbEl.style.display='block';
     btn.disabled=false;
