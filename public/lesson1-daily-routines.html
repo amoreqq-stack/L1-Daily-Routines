@@ -1045,15 +1045,9 @@ function sfCheck(fi){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userInput: userMsg })
         })
-        .then(response => response.json())
-        .then(data => {
-            const text = data.content && data.content[0] ? data.content[0].text : 'Could not get feedback.';
-            const isCorrect = text.includes('✅') || text.toLowerCase().includes('correct');
-            
-            fbEl.className = 'sf-feedback ' + (isCorrect ? 'ok' : 'no');
-            fbEl.textContent = text;
-            fbEl.style.display = 'block';
-            
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+            var text = data.content && data.content[0] ? data.content[0].text : 'Could not get feedback.';
             inputs.forEach(input => input.classList.add(isCorrect ? 'correct' : 'wrong'));
             btn.disabled = false;
             btn.textContent = 'Try again';
