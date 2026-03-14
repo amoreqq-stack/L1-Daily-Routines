@@ -1053,11 +1053,6 @@ const response = await fetch('/api/claude', {
         return { error: 'Connection failed' };
     }
 }
-    for(var k=0;k<inputs.length;k++){
-      inputs[k].classList.add(ok?'correct':'wrong');
-    }
-    btn.disabled=false;
-    btn.textContent='Try again';
   })
   .catch(function(){
     fbEl.className='sf-feedback no';
