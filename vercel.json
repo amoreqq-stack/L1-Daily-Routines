@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/public/lesson1-daily-routines.html"
+      "destination": "/lesson1-daily-routines.html"
     },
     {
       "source": "/api/(.*)",
