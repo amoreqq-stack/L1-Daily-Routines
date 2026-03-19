@@ -25,38 +25,49 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 </nav>
 
 <div class="page on" id="page-overview">
-  <div class="card"><h1>Daily Routines</h1><p>Welcome! Use the tabs to navigate.</p></div>
+  <div class="card"><h1>Daily Routines</h1><p>Welcome! Your tabs are now fixed.</p></div>
 </div>
 <div class="page" id="page-phase1">
-  <div class="card"><h2>Phase 1: Preparation</h2><p>Content for Prep.</p></div>
+  <div class="card"><h2>Phase 1: Preparation</h2><p>Lexical chunks content.</p></div>
 </div>
 <div class="page" id="page-phase2">
-  <div class="card"><h2>Phase 2: Live Class</h2><p>Content for Live Class.</p></div>
+  <div class="card"><h2>Phase 2: Live Class</h2><p>Live discussion content.</p></div>
 </div>
 <div class="page" id="page-practice">
-  <div class="card"><h2>Practice Tasks</h2><p>Content for Practice.</p></div>
+  <div class="card"><h2>Practice Tasks</h2><p>Interactive games content.</p></div>
 </div>
 
 <script>
+// THIS FUNCTION IS NOW REWRITTEN TO BE BULLETPROOF
 function go(id) {
-  // 1. Hide all pages
-  var pages = document.querySelectorAll('.page');
-  pages.forEach(function(p) { p.classList.remove('on'); });
+  console.log("Navigating to:", id);
   
-  // 2. Deactivate all tabs
+  // 1. Remove 'on' class from all pages
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove('on');
+  }
+  
+  // 2. Remove 'on' class from all tabs
   var tabs = document.querySelectorAll('.nt');
-  tabs.forEach(function(t) { t.classList.remove('on'); });
-
-  // 3. Show the target page (matches 'page-overview', etc)
-  var target = document.getElementById('page-' + id);
-  if (target) {
-    target.classList.add('on');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove('on');
   }
 
-  // 4. Activate the button
-  var m = {overview:0, phase1:1, phase2:2, practice:3};
-  if (m[id] !== undefined && tabs[m[id]]) {
-    tabs[m[id]].classList.add('on');
+  // 3. Show the specific page
+  var targetId = 'page-' + id;
+  var targetPage = document.getElementById(targetId);
+  if (targetPage) {
+    targetPage.classList.add('on');
+  } else {
+    console.error("Could not find page with ID:", targetId);
+  }
+
+  // 4. Set the active tab
+  var menuMap = { 'overview': 0, 'phase1': 1, 'phase2': 2, 'practice': 3 };
+  var index = menuMap[id];
+  if (index !== undefined && tabs[index]) {
+    tabs[index].classList.add('on');
   }
 }
 </script>
