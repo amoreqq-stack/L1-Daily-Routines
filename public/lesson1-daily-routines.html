@@ -24,8 +24,14 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .hero{background:linear-gradient(130deg,#1a5c3a 0%,#2d8a5e 55%,#4a9b6f 100%);color:#fff;border-radius:var(--r);padding:2.2rem;margin-bottom:1.4rem}
 .card{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:1.35rem;margin-bottom:1rem;box-shadow:var(--sh)}
+.char-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1rem}
+.char-card{border-radius:var(--r);padding:1.1rem;border:1.5px solid;display:flex;gap:.85rem;align-items:flex-start}
+.char-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
 .vg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem}
 .vc{border:1.5px solid var(--bd);border-radius:var(--rs);padding:.68rem .85rem;cursor:pointer;background:var(--bg)}
+.vd-clue-box{background:linear-gradient(135deg,#1a5c3a,#4a9b6f);border-radius:var(--r);padding:1.5rem;text-align:center;color:#fff}
+.vd-choices{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:1rem}
+.vd-btn{padding:.75rem;border-radius:8px;border:2px solid var(--bd);background:#fff;cursor:pointer;font-weight:700}
 </style>
 </head>
 <body>
@@ -50,7 +56,7 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
     <h1>Daily Routines</h1>
     <p>Describe your routine and master the Simple Present.</p>
   </div>
-  <div class="card"><h3>Welcome</h3><p>Use the tabs above to navigate.</p></div>
+  <div class="card"><h3>Welcome</h3><p>Use the tabs above to navigate through the lesson phases.</p></div>
 </div>
 
 <div class="page" id="phase1">
@@ -58,23 +64,47 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 </div>
 
 <div class="page" id="phase2">
-  <div class="card"><h2>Phase 2: Live Class</h2><p>Discussion happens here.</p></div>
+  <div class="card">
+    <h2>Phase 2: Live Class</h2>
+    <div class="char-grid">
+      <div class="char-card" style="background:#fdf8ee;border-color:#f0d890">
+        <div class="char-avatar" style="background:var(--yl)">👩🏼</div>
+        <div><strong>Emma (Early Bird)</strong><p>"My day starts at 5 AM. I wake up early."</p></div>
+      </div>
+      <div class="char-card" style="background:var(--bl);border-color:#cce0f5">
+        <div class="char-avatar" style="background:var(--bl)">👩🏾</div>
+        <div><strong>Lynh (Night Owl)</strong><p>"I prefer working at night. I finish late."</p></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="page" id="practice">
-  <div class="card"><h2>Practice Tasks</h2><p>Interactive tasks for the class.</p></div>
+  <div class="card"><h2>Practice Tasks</h2><p>Interactive tasks will appear here during class.</p></div>
 </div>
 
 <div class="page" id="flashcards">
-  <div class="card"><h2>Vocab Detective</h2><p>Loading game...</p></div>
+  <div class="card">
+    <h2>Vocab Detective</h2>
+    <div class="vd-clue-box"><div id="vdMeaning" style="font-weight:700">Loading...</div></div>
+    <div class="vd-choices" id="vdChoices"></div>
+  </div>
 </div>
 
 <div class="page" id="phase3">
-  <div class="card"><h2>Phase 3: Homework</h2><p>Review tasks for home.</p></div>
+  <div class="card"><h2>Phase 3: Homework</h2><p>Review the chunks and record your video reflection.</p></div>
 </div>
 
 <script>
-// THIS IS THE ONLY NAVIGATION CODE YOU NEED
+// DATA
+var vocab=[
+  {c:"wake up early", m:"To stop sleeping at an early hour."},
+  {c:"grab a coffee", m:"To quickly get a cup of coffee."},
+  {c:"check emails", m:"To look at your inbox."},
+  {c:"finish work", m:"To stop working for the day."}
+];
+
+// NAVIGATION - THE FIXED VERSION
 function go(id) {
   var pages = document.querySelectorAll('.page');
   pages.forEach(function(p) { p.classList.remove('on'); });
@@ -93,29 +123,29 @@ function go(id) {
   }
 }
 
-// Simple Timer
-var ts=0, tr=false, tin=null;
-function tC(a) {
-  if(a==='t') {
-    if(tr) { clearInterval(tin); tr=false; document.getElementById('tbn').textContent='Play'; }
-    else { tin=setInterval(function(){ts++; uT();},1000); tr=true; document.getElementById('tbn').textContent='Pause'; }
-  }
-}
-function uT() {
-  var m=String(Math.floor(ts/60)).padStart(2,'0'), s=String(ts%60).padStart(2,'0');
-  document.getElementById('td').textContent = m+':'+s;
-}
-
+// APP INITIALIZATION
 window.onload = function() {
   var vg = document.getElementById('vg');
-  var vocab = ["wake up early", "grab a coffee", "check emails", "finish work"];
-  vocab.forEach(function(v) {
+  if(vg) vocab.forEach(function(v) {
     var d = document.createElement('div');
     d.className = 'vc';
-    d.innerHTML = '<div class="vcc">' + v + '</div>';
+    d.innerHTML = '<div class="vcc">' + v.c + '</div>';
     vg.appendChild(d);
   });
+  vdInit();
 };
-</script>
-</body>
-</html>
+
+// GAME LOGIC
+var vdIdx=0;
+function vdInit() { vdIdx=0; vdShow(); }
+function vdShow() {
+  var v = vocab[vdIdx];
+  var mEl = document.getElementById('vdMeaning');
+  if(mEl) mEl.textContent = v.m;
+  var box = document.getElementById('vdChoices');
+  if(box) {
+    box.innerHTML = '';
+    vocab.forEach(function(choice) {
+      var btn = document.createElement('button');
+      btn.className = 'vd-btn';
+      btn.textContent = choice.c;
