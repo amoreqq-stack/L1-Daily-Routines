@@ -512,15 +512,20 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
   </div>
 
   <!-- WARM UP -->
-  <div class="card">
-    <div class="ct"><div class="ci" style="background:var(--yl)">1</div><h3>Warm-Up Conversation</h3><span class="sm">5 min</span></div>
-    <div class="char-grid">
-      <div class="char-card emma">
-        <div class="char-avatar e">&#128105;&#127995;</div>
-        <div>
-          <div class="char-tag" style="background:var(--yl);color:#7a6000">Early Bird</div>
-          <div class="char-name">Emma</div>
-          <div class="char-quote">"I wake up at 5 AM, grab a coffee, and start my day before anyone else is awake."</div>
+function go(id){
+  var pages = document.querySelectorAll('.page');
+  for(var i = 0; i < pages.length; i++) pages[i].classList.remove('on');
+
+  var tabs = document.querySelectorAll('.nt');
+  for(var i = 0; i < tabs.length; i++) tabs[i].classList.remove('on');
+
+  // We removed 'page-' from here to match your HTML IDs
+  var targetPage = document.getElementById(id);
+  if(targetPage) targetPage.classList.add('on');
+
+  var m = {overview:0, phase1:1, phase2:2, practice:3, flashcards:4, phase3:5};
+  if(m[id] !== undefined && tabs[m[id]]) tabs[m[id]].classList.add('on');
+}s
         </div>
       </div>
       <div class="char-card lynh">
