@@ -115,12 +115,14 @@ function go(id) {
 // INITIALIZE
 window.onload = function() {
   var vg = document.getElementById('vg');
-  vocab.forEach((v) => {
-    var d = document.createElement('div');
-    d.className = 'vc';
-    d.innerHTML = '<div class="vcc">' + v.c + '</div>';
-    vg.appendChild(d);
-  });
+  if(vg) {
+    vocab.forEach((v) => {
+      var d = document.createElement('div');
+      d.className = 'vc';
+      d.innerHTML = '<div class="vcc">' + v.c + '</div>';
+      vg.appendChild(d);
+    });
+  }
   vdInit();
 };
 
@@ -129,24 +131,27 @@ var vdIdx=0;
 function vdInit() { vdIdx=0; vdShow(); }
 function vdShow() {
   var v = vocab[vdIdx];
-  document.getElementById('vdMeaning').textContent = v.m;
+  var mEl = document.getElementById('vdMeaning');
+  if(mEl) mEl.textContent = v.m;
   var box = document.getElementById('vdChoices');
-  box.innerHTML = '';
-  vocab.forEach(choice => {
-    var btn = document.createElement('button');
-    btn.className = 'vd-btn';
-    btn.textContent = choice.c;
-    btn.onclick = () => {
-      if(choice.c === v.c) {
-        btn.style.background = '#4a9b6f';
-        btn.style.color = '#fff';
-        setTimeout(() => { vdIdx = (vdIdx + 1) % vocab.length; vdShow(); }, 1000);
-      } else {
-        btn.style.background = '#e07b6a';
-      }
-    };
-    box.appendChild(btn);
-  });
+  if(box) {
+    box.innerHTML = '';
+    vocab.forEach(choice => {
+      var btn = document.createElement('button');
+      btn.className = 'vd-btn';
+      btn.textContent = choice.c;
+      btn.onclick = () => {
+        if(choice.c === v.c) {
+          btn.style.background = '#4a9b6f';
+          btn.style.color = '#fff';
+          setTimeout(() => { vdIdx = (vdIdx + 1) % vocab.length; vdShow(); }, 1000);
+        } else {
+          btn.style.background = '#e07b6a';
+        }
+      };
+      box.appendChild(btn);
+    });
+  }
 }
 
 // TIMER
@@ -159,7 +164,8 @@ function tC(a) {
 }
 function uT() {
   var m=String(Math.floor(ts/60)).padStart(2,'0'), s=String(ts%60).padStart(2,'0');
-  document.getElementById('td').textContent=m+':'+s;
+  var td = document.getElementById('td');
+  if(td) td.textContent = m+':'+s;
 }
 </script>
 </body>
