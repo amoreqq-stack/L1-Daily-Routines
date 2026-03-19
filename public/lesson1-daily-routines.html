@@ -24,42 +24,19 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 .page.on{display:block}
 @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .hero{background:linear-gradient(130deg,#1a5c3a 0%,#2d8a5e 55%,#4a9b6f 100%);color:#fff;border-radius:var(--r);padding:2.2rem;margin-bottom:1.4rem;position:relative;overflow:hidden}
-.htag{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.18);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .75rem;border-radius:20px;margin-bottom:.7rem}
-.hero h1{font-size:1.85rem;font-weight:800;line-height:1.2;letter-spacing:-.03em;margin-bottom:.45rem}
-.hero p{font-size:.87rem;opacity:.85;max-width:480px;line-height:1.6}
-.hpills{display:flex;gap:.55rem;margin-top:1.1rem;flex-wrap:wrap}
-.hp{font-size:.73rem;font-weight:600;padding:.28rem .65rem;border-radius:20px;background:rgba(255,255,255,.15);color:#fff}
-.ovg{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:1.4rem}
-@media(max-width:680px){.ovg{grid-template-columns:1fr}}
-.ovc{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:1.25rem;cursor:pointer;transition:all .2s;box-shadow:var(--sh)}
-.ovc:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,107,64,.12)}
-.ovi{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.7rem}
-.sh2{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;padding-bottom:.9rem;border-bottom:2px solid var(--bd)}
-.sb{font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.26rem .62rem;border-radius:6px}
 .card{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:1.35rem;margin-bottom:1rem;box-shadow:var(--sh)}
 .ct{display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem}
 .ci{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.note{display:flex;gap:.55rem;border-radius:var(--rs);padding:.75rem .9rem;font-size:.8rem;line-height:1.55;margin-top:.8rem}
-.note.b{background:var(--bl);border:1px solid #cce0f5;color:#2d5a8e}
-.note.g{background:var(--gl);border:1px solid var(--gm);color:var(--tm)}
-.note.y{background:var(--yl);border:1px solid #f0d890;color:#7a6000}
-.note.p{background:var(--pl);border:1px solid #c4b5fd;color:var(--pur)}
-.vph{background:var(--bg);border:2px dashed var(--bd);border-radius:var(--rs);height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:var(--ts);font-size:.82rem;cursor:pointer;transition:border-color .2s;margin-bottom:.9rem}
 .vg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem}
-@media(max-width:580px){.vg{grid-template-columns:1fr 1fr}}
-.vc{border:1.5px solid var(--bd);border-radius:var(--rs);padding:.68rem .85rem;cursor:pointer;transition:all .18s;background:var(--bg)}
-.vcc{font-size:.82rem;font-weight:700;color:var(--green);margin-bottom:.15rem}
+.vc{border:1.5px solid var(--bd);border-radius:var(--rs);padding:.68rem .85rem;cursor:pointer;background:var(--bg)}
 .shi{display:flex;align-items:center;gap:.8rem;padding:.85rem;border:1.5px solid var(--bd);border-radius:var(--rs);margin-bottom:.5rem;cursor:pointer;background:var(--bg)}
 .tbtn{font-family:inherit;font-size:.74rem;font-weight:700;padding:.35rem .78rem;border-radius:20px;border:1.5px solid var(--bd);background:#fff;cursor:pointer}
 .tbtn.on{background:var(--green);color:#fff}
-.vd-clue-box{background:linear-gradient(135deg,#1a5c3a,#4a9b6f);border-radius:var(--r);padding:1.5rem;margin-bottom:1rem;text-align:center;color:#fff}
-.vd-choices{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
-.vd-btn{padding:.75rem;border-radius:8px;border:2px solid var(--bd);background:#fff;cursor:pointer;font-weight:700}
-.fc-progress{height:5px;background:var(--bd);border-radius:3px;margin-bottom:1rem;overflow:hidden}
+.vd-clue-box{background:linear-gradient(135deg,#1a5c3a,#4a9b6f);border-radius:var(--r);padding:1.5rem;margin-bottom:1.2rem;text-align:center;color:#fff}
+.vd-choices{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.vd-btn{padding:.75rem;border-radius:var(--rs);border:2px solid var(--bd);background:#fff;cursor:pointer;font-weight:700}
+.fc-progress{height:5px;background:var(--bd);border-radius:3px;margin-bottom:1.5rem;overflow:hidden}
 .fc-prog-bar{height:100%;background:var(--green);transition:width .3s}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.modal{background:#fff;padding:2rem;border-radius:15px;max-width:400px;width:90%}
 </style>
 </head>
 <body>
@@ -83,76 +60,49 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 <div class="page on" id="overview">
   <div class="hero">
     <h1>Daily Routines</h1>
-    <p>Describe your day and master the Simple Present.</p>
+    <p>Describe your routine and master the Simple Present.</p>
   </div>
-  <div class="ovg">
-    <div class="ovc" onclick="go('phase1')"><h3>Phase 1: Prep</h3></div>
-    <div class="ovc" onclick="go('phase2')"><h3>Phase 2: Live</h3></div>
-    <div class="ovc" onclick="go('practice')"><h3>Phase 3: Practice</h3></div>
-  </div>
+  <div class="card"><h3>Welcome to Lesson 1</h3><p>Use the tabs above to navigate through the lesson phases.</p></div>
 </div>
 
 <div class="page" id="phase1">
-  <div class="sh2"><h2>Async Preparation</h2></div>
-  <div class="card"><div class="vg" id="vg"></div></div>
+  <div class="card"><h2>Phase 1: Preparation</h2><div class="vg" id="vg"></div></div>
 </div>
 
 <div class="page" id="phase2">
-  <div class="sh2"><h2>Live Class Interaction</h2></div>
-  <div class="card">
-    <div class="ct"><h3>Shadowing Practice</h3></div>
-    <div id="shl"></div>
-  </div>
+  <div class="card"><h2>Phase 2: Live Class</h2><div id="shl"></div></div>
 </div>
 
 <div class="page" id="practice">
-  <div class="sh2"><h2>Guided Practice</h2></div>
-  <div class="card">
-    <div class="tbar" id="tbar"></div>
-    <div id="rbq" style="margin-top:1rem; font-weight:700">Select a time...</div>
-    <div id="rbe" style="font-style:italic; color:var(--ts)"></div>
-  </div>
+  <div class="card"><h2>Practice Tasks</h2><div class="tbar" id="tbar"></div><div id="rbq" style="margin-top:1rem;font-weight:700"></div><div id="rbe"></div></div>
 </div>
 
 <div class="page" id="flashcards">
-  <div class="sh2"><h2>Vocab Detective Game</h2></div>
   <div class="card">
+    <h2>Vocab Detective</h2>
     <div class="fc-progress"><div class="fc-prog-bar" id="fcBar" style="width:0%"></div></div>
-    <div id="vdStage">
-      <div class="vd-clue-box">
-        <div id="vdIcon" style="font-size:2rem">☀️</div>
-        <div id="vdMeaning" style="font-weight:700">Loading...</div>
-      </div>
-      <div class="vd-choices" id="vdChoices"></div>
-      <button class="nt" id="vdNextBtn" onclick="vdNext()" style="display:none; margin:1rem auto; background:var(--green); color:#fff">Next Question</button>
-    </div>
+    <div class="vd-clue-box"><div id="vdIcon" style="font-size:2rem"></div><div id="vdMeaning" style="font-weight:700"></div></div>
+    <div class="vd-choices" id="vdChoices"></div>
+    <button class="nt" id="vdNextBtn" onclick="vdNext()" style="display:none;margin-top:1rem;background:var(--green);color:#fff">Next</button>
   </div>
 </div>
 
 <div class="page" id="phase3">
-  <div class="sh2"><h2>Homework Task</h2></div>
-  <div class="card"><p>Record your video reflection and send it to your teacher.</p></div>
-</div>
-
-<div class="modal-overlay" id="trModal" onclick="closeModal(event)">
-  <div class="modal">
-    <h3 id="mChunk"></h3>
-    <div id="trList" style="margin-top:1rem"></div>
-  </div>
+  <div class="card"><h2>Phase 3: Homework</h2><p>Review the chunks and record your video.</p></div>
 </div>
 
 <script>
 // DATA
 var vocab=[
-  {c:"wake up early", m:"To stop sleeping at an early hour.", icon:"☀️", tr:{tr:"Erken kalkmak", ja:"早起きする"}},
-  {c:"grab a coffee", m:"To quickly get a cup of coffee.", icon:"☕", tr:{tr:"Kahve almak", ja:"コーヒーを買う"}},
-  {c:"check emails", m:"To look at your inbox.", icon:"📩", tr:{tr:"E-postaları kontrol etmek", ja:"メールを確認する"}},
-  {c:"finish work", m:"To stop working for the day.", icon:"🏠", tr:{tr:"İşi bitirmek", ja:"仕事を終わる"}}
+  {c:"wake up early", m:"To stop sleeping at an early hour.", icon:"☀️"},
+  {c:"grab a coffee", m:"To quickly get a cup of coffee.", icon:"☕"},
+  {c:"check emails", m:"To look at your inbox.", icon:"📩"},
+  {c:"finish work", m:"To stop working for the day.", icon:"🏠"}
 ];
 var shData=["I wake up early.","I grab a coffee.","I check my emails."];
 var slData=[{t:"6 AM", q:"What do you do at 6 AM?", s:"I wake up early."},{t:"5 PM", q:"What do you do at 5 PM?", s:"I finish work."}];
 
-// NAVIGATION - THE FIX
+// NAVIGATION FUNCTION
 function go(id) {
   var pages = document.querySelectorAll('.page');
   pages.forEach(p => p.classList.remove('on'));
@@ -169,59 +119,40 @@ function go(id) {
   if (m[id] !== undefined && tabs[m[id]]) {
     tabs[m[id]].classList.add('on');
   }
-  window.scrollTo(0,0);
 }
 
-// INITIALIZE INTERACTIVE ELEMENTS
+// APP INITIALIZATION
 window.onload = function() {
-  // Vocab
   var vg = document.getElementById('vg');
-  vocab.forEach((v, i) => {
+  if(vg) vocab.forEach((v) => {
     var d = document.createElement('div');
     d.className = 'vc';
     d.innerHTML = '<div class="vcc">' + v.c + '</div>';
-    d.onclick = () => openModal(i);
     vg.appendChild(d);
   });
 
-  // Shadowing
   var shl = document.getElementById('shl');
-  shData.forEach((s, i) => {
+  if(shl) shData.forEach((s, i) => {
     var d = document.createElement('div');
     d.className = 'shi';
     d.innerHTML = '<span>' + (i + 1) + '</span><span>"' + s + '"</span>';
-    d.onclick = () => d.style.background = '#e8f5ee';
     shl.appendChild(d);
   });
 
-  // Routine Builder
   var tbar = document.getElementById('tbar');
-  slData.forEach(s => {
+  if(tbar) slData.forEach(s => {
     var b = document.createElement('button');
     b.className = 'tbtn';
     b.textContent = s.t;
     b.onclick = () => {
-      document.querySelectorAll('.tbtn').forEach(x => x.classList.remove('on'));
-      b.classList.add('on');
       document.getElementById('rbq').textContent = s.q;
-      document.getElementById('rbe').textContent = 'Try: "' + s.s + '"';
+      document.getElementById('rbe').textContent = 'Sample: ' + s.s;
     };
     tbar.appendChild(b);
   });
   
   vdInit();
 };
-
-// MODAL
-function openModal(idx) {
-  var v = vocab[idx];
-  document.getElementById('mChunk').textContent = v.c;
-  var list = document.getElementById('trList');
-  list.innerHTML = '';
-  for(var l in v.tr) { list.innerHTML += '<div><strong>' + l.toUpperCase() + ':</strong> ' + v.tr[l] + '</div>'; }
-  document.getElementById('trModal').classList.add('open');
-}
-function closeModal(e) { if(e.target.id === 'trModal') document.getElementById('trModal').classList.remove('open'); }
 
 // GAME LOGIC
 var vdIdx=0;
@@ -248,7 +179,7 @@ function vdShow() {
 function vdNext() {
   vdIdx++;
   if(vdIdx < vocab.length) { vdShow(); document.getElementById('vdNextBtn').style.display='none'; }
-  else { alert('Game Complete!'); vdInit(); }
+  else { alert('Great job!'); vdInit(); }
 }
 
 // TIMER
