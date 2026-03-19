@@ -1367,13 +1367,18 @@ function uT(){var m=String(Math.floor(ts/60)).padStart(2,'0'),s=String(ts%60).pa
 
 // NAVIGATION
 function go(id){
-  var pages=document.querySelectorAll('.page');
-  for(var i=0;i<pages.length;i++) pages[i].classList.remove('on');
-  var tabs=document.querySelectorAll('.nt');
-  for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('on');
-  document.getElementById('page-'+id).classList.add('on');
-  var m={overview:0,phase1:1,phase2:2,practice:3,flashcards:4,phase3:5};
-  if(m[id]!==undefined) tabs[m[id]].classList.add('on');
+  var pages = document.querySelectorAll('.page');
+  for(var i = 0; i < pages.length; i++) pages[i].classList.remove('on');
+
+  var tabs = document.querySelectorAll('.nt');
+  for(var i = 0; i < tabs.length; i++) tabs[i].classList.remove('on');
+
+  // We removed 'page-' because your IDs are just 'overview', 'phase1', etc.
+  var targetPage = document.getElementById(id);
+  if(targetPage) targetPage.classList.add('on');
+
+  var m = {overview:0, phase1:1, phase2:2, practice:3, flashcards:4, phase3:5};
+  if(m[id] !== undefined && tabs[m[id]]) tabs[m[id]].classList.add('on');
 }
 </script>
 </body>
