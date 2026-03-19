@@ -49,41 +49,17 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 @media(max-width:580px){.vg{grid-template-columns:1fr 1fr}}
 .vc{border:1.5px solid var(--bd);border-radius:var(--rs);padding:.68rem .85rem;cursor:pointer;transition:all .18s;background:var(--bg)}
 .vcc{font-size:.82rem;font-weight:700;color:var(--green);margin-bottom:.15rem}
-.pvr{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.7rem}
-.pvb{font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:700;padding:.44rem 1rem;border-radius:20px;border:1.5px solid var(--gm);background:var(--gl);color:var(--green);cursor:pointer;transition:all .18s}
-.pve{display:none;background:var(--yl);border-left:3px solid var(--yellow);border-radius:0 7px 7px 0;padding:.6rem .9rem;font-size:.85rem;color:var(--tm);font-style:italic;margin-top:.6rem}
-.gram-rule{background:var(--w);border:2px solid var(--green);border-radius:var(--r);padding:1.35rem;margin-bottom:.9rem;box-shadow:var(--sh)}
-.rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.9rem}
-.rule-box{border-radius:var(--rs);padding:.9rem 1rem;border:1.5px solid}
-.rule-box.pos{background:var(--gl);border-color:var(--gm)}
-.rule-box.neg{background:var(--cl);border-color:#f5c4bc}
-.rule-box.q{background:var(--bl);border-color:#cce0f5;grid-column:span 2}
-.char-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1rem}
-@media(max-width:580px){.char-grid{grid-template-columns:1fr}}
-.char-card{border-radius:var(--r);padding:1.1rem;border:1.5px solid;display:flex;gap:.85rem;align-items:flex-start}
-.char-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
-.vd-clue-box{background:linear-gradient(135deg,#1a5c3a,#4a9b6f);border-radius:var(--r);padding:1.5rem 1.75rem;margin-bottom:1.2rem;text-align:center;color:#fff}
-.vd-choices{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:.85rem}
-.vd-btn{font-family:inherit;font-size:.85rem;font-weight:700;padding:.75rem 1rem;border-radius:var(--rs);border:2px solid var(--bd);background:var(--w);cursor:pointer;text-align:left}
-.vd-feedback{min-height:36px;font-size:.85rem;font-weight:600;text-align:center;padding:.5rem;border-radius:8px}
-.fc-progress{height:5px;background:var(--bd);border-radius:3px;margin-bottom:1.5rem;overflow:hidden}
-.fc-prog-bar{height:100%;background:var(--green);transition:width .3s}
-.poss-table{width:100%;border-collapse:collapse;border:1.5px solid var(--bd);margin-top:.75rem}
-.poss-table th{background:var(--blue);color:#fff;padding:.65rem;text-align:left;font-size:.8rem}
-.poss-table td{padding:.6rem;border-bottom:1px solid var(--bd);font-size:.83rem}
 .shi{display:flex;align-items:center;gap:.8rem;padding:.85rem;border:1.5px solid var(--bd);border-radius:var(--rs);margin-bottom:.5rem;cursor:pointer;background:var(--bg)}
-.sf-wrap{background:var(--bg);border:1.5px solid var(--bd);border-radius:var(--rs);padding:1rem;margin-bottom:.65rem}
-.sf-input{font-family:inherit;font-size:.93rem;font-weight:600;color:var(--green);border:none;border-bottom:2.5px solid var(--green);background:transparent;outline:none}
 .tbtn{font-family:inherit;font-size:.74rem;font-weight:700;padding:.35rem .78rem;border-radius:20px;border:1.5px solid var(--bd);background:#fff;cursor:pointer}
 .tbtn.on{background:var(--green);color:#fff}
-.cli{display:flex;align-items:center;gap:.68rem;padding:.65rem;border-bottom:1px solid var(--bd);cursor:pointer}
-.clb{width:20px;height:20px;border:2px solid var(--bd);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.65rem}
-.cli.checked .clb{background:var(--green);color:#fff;border-color:var(--green)}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,30,20,.55);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.vd-clue-box{background:linear-gradient(135deg,#1a5c3a,#4a9b6f);border-radius:var(--r);padding:1.5rem;margin-bottom:1rem;text-align:center;color:#fff}
+.vd-choices{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.vd-btn{padding:.75rem;border-radius:8px;border:2px solid var(--bd);background:#fff;cursor:pointer;font-weight:700}
+.fc-progress{height:5px;background:var(--bd);border-radius:3px;margin-bottom:1rem;overflow:hidden}
+.fc-prog-bar{height:100%;background:var(--green);transition:width .3s}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
-.modal{background:var(--w);border-radius:18px;max-width:500px;width:100%;overflow:hidden}
-.modal-head{background:linear-gradient(130deg,#1a5c3a,#4a9b6f);padding:1.4rem;color:#fff}
-.tr-row{display:flex;align-items:baseline;gap:.75rem;padding:.65rem;border-radius:9px;background:var(--bg);margin-bottom:.5rem}
+.modal{background:#fff;padding:2rem;border-radius:15px;max-width:400px;width:90%}
 </style>
 </head>
 <body>
@@ -106,202 +82,129 @@ nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;displ
 
 <div class="page on" id="overview">
   <div class="hero">
-    <div class="htag">Lesson 1 - A1-A2 - Teacher View</div>
-    <h1>Daily Routines &amp;<br>Work-Life Balance</h1>
-    <p>Students describe their daily routine, use common workday phrases, and understand Simple Present tense in real context.</p>
-    <div class="hpills">
-      <div class="hp">30-min live class</div>
-      <div class="hp">12 chunks + 4 phrasal verbs</div>
-      <div class="hp">Simple Present + Possessives</div>
-    </div>
+    <h1>Daily Routines</h1>
+    <p>Describe your day and master the Simple Present.</p>
   </div>
   <div class="ovg">
-    <div class="ovc" onclick="go('phase1')">
-      <div class="ovi" style="background:var(--yl)">Prep</div>
-      <h3>Phase 1 - Async Prep</h3>
-      <p>Self-study before class.</p>
-    </div>
-    <div class="ovc" onclick="go('phase2')">
-      <div class="ovi" style="background:var(--gl)">Live</div>
-      <h3>Phase 2 - Live Class</h3>
-      <p>The core interaction.</p>
-    </div>
-    <div class="ovc" onclick="go('practice')">
-      <div class="ovi" style="background:var(--cl)">Pr</div>
-      <h3>Practice Tasks</h3>
-      <p>Speaking & Builder mini-game.</p>
-    </div>
+    <div class="ovc" onclick="go('phase1')"><h3>Phase 1: Prep</h3></div>
+    <div class="ovc" onclick="go('phase2')"><h3>Phase 2: Live</h3></div>
+    <div class="ovc" onclick="go('practice')"><h3>Phase 3: Practice</h3></div>
   </div>
 </div>
 
 <div class="page" id="phase1">
-  <div class="sh2">
-    <span class="sb" style="background:var(--yl);color:#7a6000">Phase 1</span>
-    <h2>Async Preparation</h2>
-  </div>
-  <div class="card">
-    <div class="ct"><div class="ci" style="background:var(--bl)">Vid</div><h3>Authentic Video Input</h3></div>
-    <div class="vph" onclick="alert('Replace with video embed.')">
-      <span>Video Placeholder</span>
-    </div>
-    <div id="lp" style="display:flex;flex-wrap:wrap;gap:.38rem;margin-top:1rem"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><div class="ci" style="background:var(--yl)">Voc</div><h3>Lexical Chunks</h3></div>
-    <div class="vg" id="vg"></div>
-  </div>
+  <div class="sh2"><h2>Async Preparation</h2></div>
+  <div class="card"><div class="vg" id="vg"></div></div>
 </div>
 
 <div class="page" id="phase2">
-  <div class="sh2">
-    <span class="sb" style="background:var(--gl);color:#1a5c3a">Phase 2</span>
-    <h2>Live Class</h2>
-  </div>
+  <div class="sh2"><h2>Live Class Interaction</h2></div>
   <div class="card">
-    <div class="ct"><div class="ci" style="background:var(--yl)">1</div><h3>Warm-up</h3></div>
-    <div class="char-grid">
-      <div class="char-card" style="background:#fdf8ee;border-color:#f0d890">
-        <div class="char-avatar" style="background:var(--yl)">👩🏼</div>
-        <div>
-          <strong>Emma</strong>
-          <p>"My day starts at 5 AM. I wake up early and exercise."</p>
-        </div>
-      </div>
-      <div class="char-card" style="background:var(--bl);border-color:#cce0f5">
-        <div class="char-avatar" style="background:var(--bl)">👩🏾</div>
-        <div>
-          <strong>Lynh</strong>
-          <p>"I prefer working at night. I finish work at midnight."</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-     <div class="ct"><div class="ci" style="background:var(--bl)">2</div><h3>Shadowing</h3></div>
-     <div id="shl"></div>
+    <div class="ct"><h3>Shadowing Practice</h3></div>
+    <div id="shl"></div>
   </div>
 </div>
 
 <div class="page" id="practice">
-  <div class="sh2">
-    <span class="sb" style="background:var(--cl);color:#8b2500">Practice</span>
-    <h2>Guided Practice</h2>
-  </div>
+  <div class="sh2"><h2>Guided Practice</h2></div>
   <div class="card">
-    <div class="ct"><div class="ci" style="background:var(--pl)">1</div><h3>Sentence Frames</h3></div>
-    <div id="fd"></div>
-  </div>
-  <div class="card">
-    <div class="ct"><div class="ci" style="background:var(--gl)">2</div><h3>Routine Builder</h3></div>
     <div class="tbar" id="tbar"></div>
-    <div id="rbq" style="font-weight:700;margin-top:1rem">Select a time to begin</div>
-    <div id="rbe" style="font-style:italic;color:var(--ts)"></div>
+    <div id="rbq" style="margin-top:1rem; font-weight:700">Select a time...</div>
+    <div id="rbe" style="font-style:italic; color:var(--ts)"></div>
   </div>
 </div>
 
 <div class="page" id="flashcards">
-  <div class="sh2">
-    <span class="sb" style="background:var(--pl);color:var(--pur)">Game</span>
-    <h2>Vocab Detective</h2>
-  </div>
+  <div class="sh2"><h2>Vocab Detective Game</h2></div>
   <div class="card">
     <div class="fc-progress"><div class="fc-prog-bar" id="fcBar" style="width:0%"></div></div>
     <div id="vdStage">
-      <div id="fcCtr" style="text-align:center;font-size:.8rem;margin-bottom:1rem">Question 1 of 12</div>
       <div class="vd-clue-box">
         <div id="vdIcon" style="font-size:2rem">☀️</div>
-        <div id="vdMeaning" style="font-weight:700;margin:.5rem 0">Loading...</div>
-        <div id="vdEx" style="font-style:italic;opacity:.8"></div>
+        <div id="vdMeaning" style="font-weight:700">Loading...</div>
       </div>
       <div class="vd-choices" id="vdChoices"></div>
-      <div class="vd-feedback" id="vdFeedback"></div>
-      <button class="nt" id="vdNextBtn" onclick="vdNext()" style="display:none;margin:1rem auto;background:var(--green);color:#fff">Next</button>
+      <button class="nt" id="vdNextBtn" onclick="vdNext()" style="display:none; margin:1rem auto; background:var(--green); color:#fff">Next Question</button>
     </div>
   </div>
 </div>
 
 <div class="page" id="phase3">
-  <div class="sh2">
-    <span class="sb" style="background:var(--bl);color:#2d5a8e">Phase 3</span>
-    <h2>Homework</h2>
-  </div>
-  <div class="card">
-    <p>Share your lesson link or record a reflection video.</p>
-  </div>
+  <div class="sh2"><h2>Homework Task</h2></div>
+  <div class="card"><p>Record your video reflection and send it to your teacher.</p></div>
 </div>
 
 <div class="modal-overlay" id="trModal" onclick="closeModal(event)">
   <div class="modal">
-    <div class="modal-head">
-      <h3 id="mChunk"></h3>
-    </div>
-    <div class="modal-body" id="trList" style="padding:1rem"></div>
+    <h3 id="mChunk"></h3>
+    <div id="trList" style="margin-top:1rem"></div>
   </div>
 </div>
 
 <script>
+// DATA
 var vocab=[
-  {c:"wake up early", m:"To stop sleeping at an early hour.", e:"I wake up early every day.", icon:"☀️", tr:{tr:"Erken kalkmak",ja:"早起きする",zh:"早起"}},
-  {c:"get ready for work", m:"To prepare yourself for your job.", e:"I get ready for work at 7.", icon:"👔", tr:{tr:"İşe hazırlanmak",ja:"仕事の準備をする",zh:"准备上班"}},
-  {c:"grab a coffee", m:"To quickly get a cup of coffee.", e:"I grab a coffee before work.", icon:"☕", tr:{tr:"Kahve almak",ja:"コーヒーを買う",zh:"拿杯咖啡"}},
-  {c:"check emails", m:"To look at your inbox.", e:"I check emails in the morning.", icon:"📩", tr:{tr:"E-postaları kontrol etmek",ja:"メールを確認する",zh:"查看邮件"}},
-  {c:"start my day", m:"To begin your activities.", e:"I start my day with exercise.", icon:"🌟", tr:{tr:"Günüme başlamak",ja:"一日を始める",zh:"开始我的一天"}},
-  {c:"take a break", m:"To rest for a short time.", e:"I take a break at noon.", icon:"☕", tr:{tr:"Mola vermek",ja:"休憩をとる",zh:"休息一下"}},
-  {c:"finish work", m:"To stop working for the day.", e:"I finish work at 5.", icon:"🏠", tr:{tr:"İşi bitirmek",ja:"仕事を終わる",zh:"下班"}},
-  {c:"work from home", m:"To do your job at home.", e:"I work from home sometimes.", icon:"💻", tr:{tr:"Evden çalışmak",ja:"在宅勤務をする",zh:"在家办公"}},
-  {c:"relax after work", m:"To rest after the day is done.", e:"I relax after work.", icon:"🛌", tr:{tr:"İş sonrası rahatlama",ja:"仕事の後にリラックスする",zh:"下班后放松"}}
+  {c:"wake up early", m:"To stop sleeping at an early hour.", icon:"☀️", tr:{tr:"Erken kalkmak", ja:"早起きする"}},
+  {c:"grab a coffee", m:"To quickly get a cup of coffee.", icon:"☕", tr:{tr:"Kahve almak", ja:"コーヒーを買う"}},
+  {c:"check emails", m:"To look at your inbox.", icon:"📩", tr:{tr:"E-postaları kontrol etmek", ja:"メールを確認する"}},
+  {c:"finish work", m:"To stop working for the day.", icon:"🏠", tr:{tr:"İşi bitirmek", ja:"仕事を終わる"}}
 ];
+var shData=["I wake up early.","I grab a coffee.","I check my emails."];
+var slData=[{t:"6 AM", q:"What do you do at 6 AM?", s:"I wake up early."},{t:"5 PM", q:"What do you do at 5 PM?", s:"I finish work."}];
 
-var shData=["I wake up early during the week.","I grab a coffee before work.","I check emails in the morning."];
-var slData=[{t:"6 AM",q:"What do you do at 6 AM?",s:"I wake up early."},{t:"12 PM",q:"What do you do at noon?",s:"I take a break."}];
+// NAVIGATION - THE FIX
+function go(id) {
+  var pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.classList.remove('on'));
+  
+  var tabs = document.querySelectorAll('.nt');
+  tabs.forEach(t => t.classList.remove('on'));
 
-function go(id){
-  var pages=document.querySelectorAll('.page');
-  pages.forEach(p=>p.classList.remove('on'));
-  var tabs=document.querySelectorAll('.nt');
-  tabs.forEach(t=>t.classList.remove('on'));
-  
-  var target=document.getElementById(id);
-  if(target) target.classList.add('on');
-  
-  var m={overview:0,phase1:1,phase2:2,practice:3,flashcards:4,phase3:5};
-  if(m[id]!==undefined) tabs[m[id]].classList.add('on');
+  var target = document.getElementById(id);
+  if (target) {
+    target.classList.add('on');
+  }
+
+  var m = {overview:0, phase1:1, phase2:2, practice:3, flashcards:4, phase3:5};
+  if (m[id] !== undefined && tabs[m[id]]) {
+    tabs[m[id]].classList.add('on');
+  }
   window.scrollTo(0,0);
 }
 
-// Initializers
-window.onload=function(){
-  // Vocab Grid
-  var vg=document.getElementById('vg');
-  vocab.forEach((v,i)=>{
-    var d=document.createElement('div');
-    d.className='vc';
-    d.innerHTML='<div class="vcc">'+v.c+'</div>';
-    d.onclick=()=>openModal(i);
+// INITIALIZE INTERACTIVE ELEMENTS
+window.onload = function() {
+  // Vocab
+  var vg = document.getElementById('vg');
+  vocab.forEach((v, i) => {
+    var d = document.createElement('div');
+    d.className = 'vc';
+    d.innerHTML = '<div class="vcc">' + v.c + '</div>';
+    d.onclick = () => openModal(i);
     vg.appendChild(d);
   });
 
   // Shadowing
-  var shl=document.getElementById('shl');
-  shData.forEach((s,i)=>{
-    var d=document.createElement('div');
-    d.className='shi';
-    d.innerHTML='<span>'+(i+1)+'</span><span>"'+s+'"</span>';
-    d.onclick=()=>d.style.background='#e8f5ee';
+  var shl = document.getElementById('shl');
+  shData.forEach((s, i) => {
+    var d = document.createElement('div');
+    d.className = 'shi';
+    d.innerHTML = '<span>' + (i + 1) + '</span><span>"' + s + '"</span>';
+    d.onclick = () => d.style.background = '#e8f5ee';
     shl.appendChild(d);
   });
 
   // Routine Builder
-  var tbar=document.getElementById('tbar');
-  slData.forEach(s=>{
-    var b=document.createElement('button');
-    b.className='tbtn';
-    b.textContent=s.t;
-    b.onclick=()=>{
-      document.querySelectorAll('.tbtn').forEach(x=>x.classList.remove('on'));
+  var tbar = document.getElementById('tbar');
+  slData.forEach(s => {
+    var b = document.createElement('button');
+    b.className = 'tbtn';
+    b.textContent = s.t;
+    b.onclick = () => {
+      document.querySelectorAll('.tbtn').forEach(x => x.classList.remove('on'));
       b.classList.add('on');
-      document.getElementById('rbq').textContent=s.q;
-      document.getElementById('rbe').textContent='Sample: "'+s.s+'"';
+      document.getElementById('rbq').textContent = s.q;
+      document.getElementById('rbe').textContent = 'Try: "' + s.s + '"';
     };
     tbar.appendChild(b);
   });
@@ -309,60 +212,54 @@ window.onload=function(){
   vdInit();
 };
 
-function openModal(idx){
-  var v=vocab[idx];
-  document.getElementById('mChunk').textContent=v.c;
-  var list=document.getElementById('trList');
-  list.innerHTML='';
-  for(var lang in v.tr){
-    list.innerHTML+='<div class="tr-row"><strong>'+lang.toUpperCase()+':</strong> '+v.tr[lang]+'</div>';
-  }
+// MODAL
+function openModal(idx) {
+  var v = vocab[idx];
+  document.getElementById('mChunk').textContent = v.c;
+  var list = document.getElementById('trList');
+  list.innerHTML = '';
+  for(var l in v.tr) { list.innerHTML += '<div><strong>' + l.toUpperCase() + ':</strong> ' + v.tr[l] + '</div>'; }
   document.getElementById('trModal').classList.add('open');
 }
-function closeModal(e){ if(e.target.id==='trModal') document.getElementById('trModal').classList.remove('open'); }
+function closeModal(e) { if(e.target.id === 'trModal') document.getElementById('trModal').classList.remove('open'); }
 
-// Detective Game Logic
-var vdIdx=0, vdCorrect=0;
-function vdInit(){ vdIdx=0; vdCorrect=0; vdShow(); }
-function vdShow(){
-  var v=vocab[vdIdx];
-  document.getElementById('vdIcon').innerHTML=v.icon;
-  document.getElementById('vdMeaning').textContent=v.m;
-  document.getElementById('vdEx').textContent=v.e.replace(v.c,'______');
-  document.getElementById('fcCtr').textContent='Question '+(vdIdx+1)+' of '+vocab.length;
-  document.getElementById('fcBar').style.width=(vdIdx/vocab.length*100)+'%';
-  var choices=[v.c, vocab[(vdIdx+1)%vocab.length].c, vocab[(vdIdx+2)%vocab.length].c];
-  choices.sort(()=>Math.random()-0.5);
-  var box=document.getElementById('vdChoices');
-  box.innerHTML='';
-  choices.forEach(c=>{
-    var btn=document.createElement('button');
-    btn.className='vd-btn';
-    btn.textContent=c;
-    btn.onclick=()=>vdGuess(c===v.c, btn);
+// GAME LOGIC
+var vdIdx=0;
+function vdInit() { vdIdx=0; vdShow(); }
+function vdShow() {
+  var v = vocab[vdIdx];
+  document.getElementById('vdIcon').innerHTML = v.icon;
+  document.getElementById('vdMeaning').textContent = v.m;
+  document.getElementById('fcBar').style.width = (vdIdx/vocab.length*100) + '%';
+  var box = document.getElementById('vdChoices');
+  box.innerHTML = '';
+  vocab.forEach(choice => {
+    var btn = document.createElement('button');
+    btn.className = 'vd-btn';
+    btn.textContent = choice.c;
+    btn.onclick = () => {
+      btn.style.background = (choice.c === v.c) ? '#4a9b6f' : '#e07b6a';
+      btn.style.color = '#fff';
+      document.getElementById('vdNextBtn').style.display = 'block';
+    };
     box.appendChild(btn);
   });
 }
-function vdGuess(ok, btn){
-  btn.style.background=ok?'#e8f5ee':'#fceae7';
-  if(ok) vdCorrect++;
-  document.getElementById('vdNextBtn').style.display='block';
-}
-function vdNext(){
+function vdNext() {
   vdIdx++;
-  if(vdIdx<vocab.length) { vdShow(); document.getElementById('vdNextBtn').style.display='none'; }
-  else alert('Game Over! Score: '+vdCorrect+'/'+vocab.length);
+  if(vdIdx < vocab.length) { vdShow(); document.getElementById('vdNextBtn').style.display='none'; }
+  else { alert('Game Complete!'); vdInit(); }
 }
 
-// Timer
+// TIMER
 var ts=0, tr=false, tin=null;
-function tC(a){
-  if(a==='t'){
-    if(tr){clearInterval(tin); tr=false; document.getElementById('tbn').textContent='Play';}
-    else{tin=setInterval(()=>{ts++; uT();},1000); tr=true; document.getElementById('tbn').textContent='Pause';}
+function tC(a) {
+  if(a==='t') {
+    if(tr) { clearInterval(tin); tr=false; document.getElementById('tbn').textContent='Play'; }
+    else { tin=setInterval(()=>{ts++; uT();},1000); tr=true; document.getElementById('tbn').textContent='Pause'; }
   } else { clearInterval(tin); ts=0; uT(); tr=false; document.getElementById('tbn').textContent='Play'; }
 }
-function uT(){
+function uT() {
   var m=String(Math.floor(ts/60)).padStart(2,'0'), s=String(ts%60).padStart(2,'0');
   document.getElementById('td').textContent=m+':'+s;
 }
