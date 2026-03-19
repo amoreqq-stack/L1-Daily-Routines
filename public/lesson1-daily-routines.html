@@ -1,151 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Lesson 1 - Daily Routines</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#f5f7f2;--w:#fff;--green:#4a9b6f;--gl:#e8f5ee;--gm:#c5e8d4;--yellow:#f0c040;--yl:#fdf6e0;--blue:#5b9bd5;--bl:#e8f1fb;--coral:#e07b6a;--cl:#fceae7;--pur:#7c3aed;--pl:#ede9fe;--text:#1a1f16;--tm:#4a5240;--ts:#8a9480;--bd:#e2e8dc;--sh:0 2px 12px rgba(74,107,64,.08);--r:14px;--rs:10px}
+:root{--bg:#f5f7f2;--w:#fff;--green:#4a9b6f;--gl:#e8f5ee;--gm:#c5e8d4;--bd:#e2e8dc;--ts:#8a9480;--text:#1a1f16}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;display:flex;align-items:center;height:58px;gap:.3rem;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.06)}
-.brand{font-weight:800;font-size:.95rem;color:var(--green);margin-right:.75rem;display:flex;align-items:center;gap:.45rem;white-space:nowrap}
-.brand span{background:var(--green);color:#fff;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.75rem}
-.ntabs{display:flex;gap:.2rem;flex-wrap:nowrap}
-.nt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.76rem;font-weight:600;padding:.38rem .8rem;border-radius:7px;border:none;background:transparent;color:var(--ts);cursor:pointer;transition:all .18s;white-space:nowrap}
-.nt:hover{background:var(--gl);color:var(--green)}
+nav{background:var(--w);border-bottom:1px solid var(--bd);padding:0 1.5rem;display:flex;align-items:center;height:58px;gap:.3rem;position:sticky;top:0;z-index:100}
+.nt{font-family:inherit;font-size:.76rem;font-weight:600;padding:.38rem .8rem;border-radius:7px;border:none;background:transparent;color:var(--ts);cursor:pointer}
 .nt.on{background:var(--green);color:#fff}
-.tw{margin-left:auto;display:flex;align-items:center;gap:.35rem;background:var(--gl);border:1.5px solid var(--gm);border-radius:9px;padding:.28rem .65rem}
-.td{font-weight:800;font-size:.9rem;color:var(--green);min-width:42px;text-align:center}
-.tb{background:none;border:none;color:var(--green);cursor:pointer;font-size:.78rem;padding:.1rem .22rem;border-radius:4px;font-weight:700}
-.page{display:none;padding:1.75rem;max-width:1060px;margin:0 auto;animation:fu .25s ease}
+.page{display:none;padding:1.75rem;max-width:1060px;margin:0 auto}
 .page.on{display:block}
-@keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.hero{background:linear-gradient(130deg,#1a5c3a 0%,#2d8a5e 55%,#4a9b6f 100%);color:#fff;border-radius:var(--r);padding:2.2rem;margin-bottom:1.4rem}
-.card{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:1.35rem;margin-bottom:1rem;box-shadow:var(--sh)}
-.char-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1rem}
-.char-card{border-radius:var(--r);padding:1.1rem;border:1.5px solid;display:flex;gap:.85rem;align-items:flex-start}
-.char-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
-.vg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem}
-.vc{border:1.5px solid var(--bd);border-radius:var(--rs);padding:.68rem .85rem;cursor:pointer;background:var(--bg)}
-.vd-clue-box{background:linear-gradient(135deg,#1a5c3a,#4a9b6f);border-radius:var(--r);padding:1.5rem;text-align:center;color:#fff}
-.vd-choices{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:1rem}
-.vd-btn{padding:.75rem;border-radius:8px;border:2px solid var(--bd);background:#fff;cursor:pointer;font-weight:700}
+.card{background:var(--w);border:1px solid var(--bd);border-radius:14px;padding:1.35rem;margin-bottom:1rem}
 </style>
 </head>
 <body>
 <nav>
-  <div class="brand"><span>L1</span>Daily Routines</div>
-  <div class="ntabs">
-    <button class="nt on" onclick="go('overview')">Overview</button>
-    <button class="nt" onclick="go('phase1')">Prep</button>
-    <button class="nt" onclick="go('phase2')">Live Class</button>
-    <button class="nt" onclick="go('practice')">Practice</button>
-    <button class="nt" onclick="go('flashcards')">Game</button>
-    <button class="nt" onclick="go('phase3')">Homework</button>
-  </div>
-  <div class="tw">
-    <span class="td" id="td">00:00</span>
-    <button class="tb" onclick="tC('t')" id="tbn">Play</button>
-  </div>
+  <button class="nt on" onclick="go('overview')">Overview</button>
+  <button class="nt" onclick="go('phase1')">Prep</button>
+  <button class="nt" onclick="go('phase2')">Live Class</button>
+  <button class="nt" onclick="go('practice')">Practice</button>
 </nav>
 
-<div class="page on" id="overview">
-  <div class="hero">
-    <h1>Daily Routines</h1>
-    <p>Describe your routine and master the Simple Present.</p>
-  </div>
-  <div class="card"><h3>Welcome</h3><p>Use the tabs above to navigate through the lesson phases.</p></div>
+<div class="page on" id="page-overview">
+  <div class="card"><h1>Daily Routines</h1><p>Welcome! Use the tabs to navigate.</p></div>
 </div>
-
-<div class="page" id="phase1">
-  <div class="card"><h2>Phase 1: Preparation</h2><div class="vg" id="vg"></div></div>
+<div class="page" id="page-phase1">
+  <div class="card"><h2>Phase 1: Preparation</h2><p>Content for Prep.</p></div>
 </div>
-
-<div class="page" id="phase2">
-  <div class="card">
-    <h2>Phase 2: Live Class</h2>
-    <div class="char-grid">
-      <div class="char-card" style="background:#fdf8ee;border-color:#f0d890">
-        <div class="char-avatar" style="background:var(--yl)">👩🏼</div>
-        <div><strong>Emma (Early Bird)</strong><p>"My day starts at 5 AM. I wake up early."</p></div>
-      </div>
-      <div class="char-card" style="background:var(--bl);border-color:#cce0f5">
-        <div class="char-avatar" style="background:var(--bl)">👩🏾</div>
-        <div><strong>Lynh (Night Owl)</strong><p>"I prefer working at night. I finish late."</p></div>
-      </div>
-    </div>
-  </div>
+<div class="page" id="page-phase2">
+  <div class="card"><h2>Phase 2: Live Class</h2><p>Content for Live Class.</p></div>
 </div>
-
-<div class="page" id="practice">
-  <div class="card"><h2>Practice Tasks</h2><p>Interactive tasks will appear here during class.</p></div>
-</div>
-
-<div class="page" id="flashcards">
-  <div class="card">
-    <h2>Vocab Detective</h2>
-    <div class="vd-clue-box"><div id="vdMeaning" style="font-weight:700">Loading...</div></div>
-    <div class="vd-choices" id="vdChoices"></div>
-  </div>
-</div>
-
-<div class="page" id="phase3">
-  <div class="card"><h2>Phase 3: Homework</h2><p>Review the chunks and record your video reflection.</p></div>
+<div class="page" id="page-practice">
+  <div class="card"><h2>Practice Tasks</h2><p>Content for Practice.</p></div>
 </div>
 
 <script>
-// DATA
-var vocab=[
-  {c:"wake up early", m:"To stop sleeping at an early hour."},
-  {c:"grab a coffee", m:"To quickly get a cup of coffee."},
-  {c:"check emails", m:"To look at your inbox."},
-  {c:"finish work", m:"To stop working for the day."}
-];
-
-// NAVIGATION - THE FIXED VERSION
 function go(id) {
+  // 1. Hide all pages
   var pages = document.querySelectorAll('.page');
   pages.forEach(function(p) { p.classList.remove('on'); });
   
+  // 2. Deactivate all tabs
   var tabs = document.querySelectorAll('.nt');
   tabs.forEach(function(t) { t.classList.remove('on'); });
 
-  var target = document.getElementById(id);
+  // 3. Show the target page (matches 'page-overview', etc)
+  var target = document.getElementById('page-' + id);
   if (target) {
     target.classList.add('on');
   }
 
-  var m = {overview:0, phase1:1, phase2:2, practice:3, flashcards:4, phase3:5};
+  // 4. Activate the button
+  var m = {overview:0, phase1:1, phase2:2, practice:3};
   if (m[id] !== undefined && tabs[m[id]]) {
     tabs[m[id]].classList.add('on');
   }
 }
-
-// APP INITIALIZATION
-window.onload = function() {
-  var vg = document.getElementById('vg');
-  if(vg) vocab.forEach(function(v) {
-    var d = document.createElement('div');
-    d.className = 'vc';
-    d.innerHTML = '<div class="vcc">' + v.c + '</div>';
-    vg.appendChild(d);
-  });
-  vdInit();
-};
-
-// GAME LOGIC
-var vdIdx=0;
-function vdInit() { vdIdx=0; vdShow(); }
-function vdShow() {
-  var v = vocab[vdIdx];
-  var mEl = document.getElementById('vdMeaning');
-  if(mEl) mEl.textContent = v.m;
-  var box = document.getElementById('vdChoices');
-  if(box) {
-    box.innerHTML = '';
-    vocab.forEach(function(choice) {
-      var btn = document.createElement('button');
-      btn.className = 'vd-btn';
-      btn.textContent = choice.c;
+</script>
+</body>
+</html>
